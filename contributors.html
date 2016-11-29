@@ -1,0 +1,16 @@
+<div>
+ 
+ <div>{{error}}</div>
+ 
+  <div ng-repeat="item in contributors "> <!-- | orderBy:'+contributions' -->
+    <div>{{ item.login }}</div>
+    <div>{{ item.contributions }}</div>
+    <div><img src="{{item.avatar_url}}" alt="item.login" class="headshot-sm"></div>
+  </div>
+  
+  <div>
+    <a href="#/main"> Back to search</a>
+    <a href="#/user/{{ userName }}"> Back to user</a>
+  </div>
+  
+</div>

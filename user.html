@@ -1,0 +1,39 @@
+<div>
+
+  <div>{{error}}</div>
+  <br/>
+  
+  <div>
+
+    <div>Name: {{ user.name }}</div>
+    <div>Location: {{ user.location }}</div>
+    <div>
+      <img src="{{user.avatar_url}}" alt="user.name" class="headshot-sm">
+    </div>
+
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th><a href="{{selfPath}}" ng-click="changeRepoSortOrder('name')">Name</a></th>
+        <th><a href="{{selfPath}}" ng-click="changeRepoSortOrder('stargazers_count')">Stars</a></th>
+        <th><a href="{{selfPath}}" ng-click="changeRepoSortOrder('language')">Language</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repo in user.repos | orderBy:repoSortOrder ">
+        <!--orderBy:'-stargazers_count' -->
+        <td><a href="#/repo/contributors/{{user.login}}/{{repo.name}}">{{ repo.name }}</a></td>
+        <td>{{ repo.stargazers_count | number }}</td>
+        <td>{{ repo.language }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div>
+    <a href="#/main"> Back to search</a>
+  </div>
+  
+</div>
